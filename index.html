@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV con Link Profesional - Tu CV en un link</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables de colores y tipografía */
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-color: #333333;
+            --text-light: #666666;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.07);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Estilos de botón */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-large {
+            padding: 18px 40px;
+            font-size: 1.2rem;
+        }
+
+        /* Estilos del header */
+        header {
+            padding: 25px 0;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        /* Sección Hero */
+        .hero {
+            padding: 80px 0 100px;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Secciones generales */
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sección: ¿Qué es esto? */
+        .what-is {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Sección: ¿Qué incluye? */
+        .includes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .include-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px 0;
+        }
+
+        .include-item i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        /* Sección: ¿Para quién es? */
+        .audience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .audience-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .audience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .audience-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Sección: Precio */
+        .pricing {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--primary-color);
+        }
+
+        .price-amount {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 20px 0;
+        }
+
+        .price-period {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .price-features {
+            text-align: left;
+            margin: 30px 0;
+            padding-left: 20px;
+        }
+
+        .price-features li {
+            margin-bottom: 15px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .price-features li:before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Sección: Llamado a la acción */
+        .cta {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: var(--white);
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta .btn {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .cta .btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: var(--white);
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title p {
+                font-size: 1.1rem;
+            }
+            
+            .price-amount {
+                font-size: 2.8rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .pricing {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            
+            .btn, .btn-large {
+                width: 100%;
+                padding: 16px 20px;
+            }
+            
+            .hero {
+                padding: 60px 0 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con logo -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-link"></i> CV con Link
+            </a>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Tu CV en un link profesional</h1>
+            <p>Ideal para enviar por WhatsApp, correo o LinkedIn. Sin PDFs.</p>
+            <a href="#cta" class="btn btn-large">Quiero mi CV con link</a>
+        </div>
+    </section>
+
+    <!-- Sección: ¿Qué es esto? -->
+    <section id="what">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Qué es esto?</h2>
+                <p>Un CV web siempre disponible, fácil de compartir y sin necesidad de conocimientos técnicos</p>
+            </div>
+            
+            <div class="what-is">
+                <div class="feature-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Página web personal</h3>
+                    <p>Tu CV se convierte en una página web profesional, accesible desde cualquier dispositivo con internet.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Siempre disponible</h3>
+                    <p>Tu link está siempre activo, las 24 horas del día, los 365 días del año.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Fácil de compartir</h3>
+                    <p>Comparte tu link profesional en segundos por WhatsApp, correo electrónico o LinkedIn.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>Sin conocimientos técnicos</h3>
+                    <p>Nosotros nos encargamos de todo. Solo envíanos tu información y nosotros creamos tu CV web.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: ¿Qué incluye? -->
+    <section id="includes">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Qué incluye?</h2>
+                <p>Todo lo que necesitas para presentarte de manera profesional</p>
+            </div>
+            
+            <div class="includes">
+                <div>
+                    <div class="include-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h3>Página web personalizada</h3>
+                            <p>Diseño limpio y profesional que refleja tu perfil.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="include-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h3>Foto y perfil profesional</h3>
+                            <p>Presenta tu información personal de manera atractiva.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="include-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h3>Experiencia y habilidades</h3>
+                            <p>Destaca tu trayectoria y competencias de forma clara.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="include-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h3>Botones de contacto directo</h3>
+                            <p>Incluye enlaces para WhatsApp, correo y LinkedIn.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="include-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h3>Link permanente</h3>
+                            <p>Tu dirección personalizada que nunca expira.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="include-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h3>Optimizado para móviles</h3>
+                            <p>Se ve perfecto en cualquier dispositivo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: ¿Para quién es? -->
+    <section id="audience">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Para quién es?</h2>
+                <p>Perfecto para cualquier persona que quiera destacar profesionalmente</p>
+            </div>
+            
+            <div class="audience">
+                <div class="audience-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Personas buscando trabajo</h3>
+                    <p>Destaca entre otros candidatos con un CV moderno y accesible.</p>
+                </div>
+                
+                <div class="audience-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Freelancers</h3>
+                    <p>Muestra tu portafolio y habilidades de manera profesional.</p>
+                </div>
+                
+                <div class="audience-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Estudiantes</h3>
+                    <p>Presenta tu formación y proyectos de forma moderna.</p>
+                </div>
+                
+                <div class="audience-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Profesionales en crecimiento</h3>
+                    <p>Actualiza tu imagen profesional sin complicaciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Precio -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Precio</h2>
+                <p>Una solución simple y económica para tu presencia profesional</p>
+            </div>
+            
+            <div class="pricing">
+                <h3>CV con Link Profesional</h3>
+                <div class="price-amount">$29<span style="font-size: 1.5rem;">/año</span></div>
+                <p class="price-period">Un solo pago por todo el año. Sin complicaciones.</p>
+                
+                <ul class="price-features">
+                    <li>Página web personalizada con tu información</li>
+                    <li>Link profesional permanente</li>
+                    <li>Diseño optimizado para móviles</li>
+                    <li>Botones de contacto directo</li>
+                    <li>Soporte para actualizaciones</li>
+                    <li>Sin costos adicionales</li>
+                </ul>
+                
+                <a href="#cta" class="btn btn-large">Quiero mi CV con link</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Llamado a la acción final -->
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>¿Listo para tener tu CV en un link?</h2>
+            <p>Empieza a compartir tu perfil profesional de manera moderna y efectiva. Sin PDFs, sin complicaciones.</p>
+            <a href="https://wa.me/5491112345678?text=Hola,%20quiero%20información%20sobre%20el%20CV%20con%20link%20profesional" target="_blank" class="btn btn-large">Pedir mi CV con link</a>
+            <p style="margin-top: 20px; font-size: 1rem;">Te redirigiremos a WhatsApp para coordinar los detalles</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-link"></i> CV con Link
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#what">¿Qué es?</a>
+                    <a href="#includes">¿Qué incluye?</a>
+                    <a href="#audience">¿Para quién es?</a>
+                    <a href="#pricing">Precio</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CV con Link Profesional. Todos los derechos reservados.</p>
+                <p style="margin-top: 5px;">Diseñado para personas no técnicas - Sin términos complicados de hosting o servidores</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para smooth scrolling -->
+    <script>
+        // Smooth scrolling para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Efecto de aparición suave al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Aplicar a las tarjetas y secciones
+        document.querySelectorAll('.feature-card, .audience-card, .pricing, .include-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

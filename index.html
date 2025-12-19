@@ -111,10 +111,21 @@
         .hero p {
             font-size: 1.3rem;
             color: var(--text-light);
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            background-color: rgba(37, 99, 235, 0.1);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 10px;
         }
 
         /* Secciones generales */
@@ -273,6 +284,53 @@
             left: 0;
         }
 
+        /* Sección: ¿Qué necesito enviarte? */
+        .what-to-send {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .send-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .send-step {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .send-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.2rem;
+            line-height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .step-note {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 5px;
+        }
+
         /* Sección: Llamado a la acción */
         .cta {
             text-align: center;
@@ -384,6 +442,10 @@
             .pricing {
                 padding: 30px 20px;
             }
+            
+            .send-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 480px) {
@@ -398,6 +460,10 @@
             
             .hero {
                 padding: 60px 0 80px;
+            }
+            
+            .send-steps {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -417,7 +483,8 @@
         <div class="container">
             <h1>Tu CV en un link profesional</h1>
             <p>Ideal para enviar por WhatsApp, correo o LinkedIn. Sin PDFs.</p>
-            <a href="#cta" class="btn btn-large">Quiero mi CV con link</a>
+            <div class="subtitle">Tú envías la información. Nosotros hacemos el resto.</div>
+            <a href="#cta" class="btn btn-large" style="margin-top: 30px;">Quiero mi CV con link</a>
         </div>
     </section>
 
@@ -575,11 +642,54 @@
                     <li>Link profesional permanente</li>
                     <li>Diseño optimizado para móviles</li>
                     <li>Botones de contacto directo</li>
-                    <li>Soporte para actualizaciones</li>
+                    <li>1 actualización incluida durante el año</li>
                     <li>Sin costos adicionales</li>
                 </ul>
                 
                 <a href="#cta" class="btn btn-large">Quiero mi CV con link</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: ¿Qué necesito enviarte? -->
+    <section id="send-info">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Qué necesito enviarte?</h2>
+                <p>Es muy simple. Solo necesitamos esta información básica</p>
+            </div>
+            
+            <div class="what-to-send">
+                <div class="send-steps">
+                    <div class="send-step">
+                        <div class="step-number">1</div>
+                        <h3>Nombre y título profesional</h3>
+                        <p>Quién eres y a qué te dedicas</p>
+                    </div>
+                    
+                    <div class="send-step">
+                        <div class="step-number">2</div>
+                        <h3>Foto (opcional)</h3>
+                        <p>Una foto profesional para tu perfil</p>
+                        <div class="step-note">No obligatoria</div>
+                    </div>
+                    
+                    <div class="send-step">
+                        <div class="step-number">3</div>
+                        <h3>Experiencia y habilidades</h3>
+                        <p>Trabajos anteriores y lo que sabes hacer</p>
+                    </div>
+                    
+                    <div class="send-step">
+                        <div class="step-number">4</div>
+                        <h3>Información de contacto</h3>
+                        <p>WhatsApp, email y LinkedIn</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 40px; font-size: 1.2rem; color: var(--text-light); max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Envíanos esta información por WhatsApp y en 24 horas tendrás tu CV con link profesional listo para compartir.
+                </p>
             </div>
         </div>
     </section>
@@ -589,8 +699,8 @@
         <div class="container">
             <h2>¿Listo para tener tu CV en un link?</h2>
             <p>Empieza a compartir tu perfil profesional de manera moderna y efectiva. Sin PDFs, sin complicaciones.</p>
-            <a href="https://api.whatsapp.com/send/?phone=573212672589&text&type=phone_number&app_absent=0" target="_blank" class="btn btn-large">Pedir mi CV con link</a>
-            <p style="margin-top: 20px; font-size: 1rem;">Te redirigiremos a WhatsApp para coordinar los detalles</p>
+            <a href="https://wa.me/573212672589?text=Hola,%20quiero%20mi%20CV%20con%20link%20profesional" target="_blank" class="btn btn-large">Pedir mi CV con link</a>
+            <p style="margin-top: 20px; font-size: 1rem;">Te redirigiremos a WhatsApp para que nos envíes tu información</p>
         </div>
     </section>
 
@@ -607,11 +717,12 @@
                     <a href="#includes">¿Qué incluye?</a>
                     <a href="#audience">¿Para quién es?</a>
                     <a href="#pricing">Precio</a>
+                    <a href="#send-info">¿Qué enviar?</a>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 CV con Link Profesional. Todos los derechos reservados.</p>
+                <p>&copy; 2025 CV con Link Profesional. Todos los derechos reservados.</p>
                 <p style="margin-top: 5px;">Diseñado para personas no técnicas - Sin términos complicados de hosting o servidores</p>
             </div>
         </div>
@@ -653,7 +764,7 @@
         }, observerOptions);
         
         // Aplicar a las tarjetas y secciones
-        document.querySelectorAll('.feature-card, .audience-card, .pricing, .include-item').forEach(el => {
+        document.querySelectorAll('.feature-card, .audience-card, .pricing, .include-item, .send-step').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
